@@ -6,26 +6,21 @@ import com.demo.endpoints.ContactsEndpoints._
 import com.typesafe.scalalogging.LazyLogging
 import io.circe.generic.auto._
 import sttp.model.StatusCode
-//TODO remove if not needed
-import sttp.tapir.EndpointIO.annotations.path
 import sttp.tapir.generic.auto._
 import sttp.tapir.json.circe.jsonBody
 import sttp.tapir.{path, _}
-
-import scala.concurrent.ExecutionContext
 
 object ContactsEndpoints {
 
   private val sampleContact =
     Contact(fullName = "John Doe", telephone = "555-5555", email = "mail@mail.com", country = "US")
-  private val sampleError = ServiceResponse(status = "error", description = "Error description")
 
   private val contactNotFound      = ServiceResponse(status = "error", description = "Contact not found")
   private val contactAlreadyExists = ServiceResponse(status = "error", description = "Contact already exists")
   private val internalError        = ServiceResponse(status = "error", description = "Error when [action]")
 }
 
-class ContactsEndpoints()(implicit ec: ExecutionContext) extends LazyLogging {
+class ContactsEndpoints() extends LazyLogging {
 
   private val tag          = "Contacts"
   private val email        = path[String]("email")

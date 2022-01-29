@@ -4,11 +4,11 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Directives._
 import com.demo.data.SampleData.addSampleData
-import com.demo.endpoints.{ContactsEndpoints, HelloWorldEndpoint, PingEndpoints}
+import com.demo.endpoints.ContactsEndpoints
 import com.demo.routes.{ContactRoutes, SwaggerRoutes}
 import com.typesafe.scalalogging.LazyLogging
 import repository.InMemoryContactsRepository
-import services.{ContactsService, PingService}
+import services.ContactsService
 
 import scala.util.{Failure, Success}
 
@@ -32,16 +32,11 @@ object MainApi extends LazyLogging {
 
     // Services
     val contactsService = new ContactsService(contactRepo)
-    val pingService     = new PingService()
 
     // Endpoints
-    val helloWorldEndpoint = new HelloWorldEndpoint()
-    val pingEndpoints      = new PingEndpoints()
-    val contactEndpoints   = new ContactsEndpoints()
+    val contactEndpoints = new ContactsEndpoints()
     val openAPIDocRoute = new SwaggerRoutes(
-      contactEndpoints.allEndpoints ++ pingEndpoints.allEndpoints ++ List(
-            helloWorldEndpoint.helloWorldEndpoint
-          ),
+      contactEndpoints.allEndpoints,
       serviceName,
       serviceVersion,
     )

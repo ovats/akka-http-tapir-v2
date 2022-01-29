@@ -11,6 +11,7 @@ lazy val settings = Seq(
   scalacOptions ++= Seq(
     "-unchecked",
     "-feature",
+    "-Ywarn-unused",
     "-language:existentials",
     "-language:higherKinds",
     "-language:implicitConversions",
