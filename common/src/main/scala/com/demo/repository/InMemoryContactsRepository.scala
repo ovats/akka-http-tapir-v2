@@ -1,4 +1,4 @@
-package repository
+package com.demo.repository
 
 import com.demo.domain.Contact
 
