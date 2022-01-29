@@ -1,7 +1,7 @@
 package com.demo.data
 
 import com.demo.domain.Contact
-import repository.Repository
+import com.demo.repository.Repository
 
 import scala.concurrent.Future
 

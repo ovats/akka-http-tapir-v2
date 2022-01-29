@@ -1,9 +1,9 @@
-package services
+package com.demo.services
 
 import com.demo.ServiceResponse
 import com.demo.domain.Contact
+import com.demo.repository.Repository
 import com.typesafe.scalalogging.LazyLogging
-import repository.Repository
 
 import scala.concurrent.{ExecutionContext, Future}
 

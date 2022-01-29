@@ -5,10 +5,10 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Directives._
 import com.demo.data.SampleData.addSampleData
 import com.demo.endpoints.ContactsEndpoints
+import com.demo.repository.InMemoryContactsRepository
 import com.demo.routes.{ContactRoutes, SwaggerRoutes}
+import com.demo.services.ContactsService
 import com.typesafe.scalalogging.LazyLogging
-import repository.InMemoryContactsRepository
-import services.ContactsService
 
 import scala.util.{Failure, Success}
 

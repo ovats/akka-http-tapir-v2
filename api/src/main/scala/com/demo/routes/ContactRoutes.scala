@@ -3,7 +3,7 @@ package com.demo.routes
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import com.demo.endpoints.ContactsEndpoints
-import services.ContactsService
+import com.demo.services.ContactsService
 import sttp.tapir.server.akkahttp.AkkaHttpServerInterpreter
 
 class ContactRoutes(contactsService: ContactsService, contactsEndpoints: ContactsEndpoints) {
